@@ -9,15 +9,20 @@ steroids.config.location = "http://localhost/index.html"
 # -- Tab Bar --
 # steroids.config.tabBar.enabled = true
 # steroids.config.tabBar.tabs = [
-#   {
-#     title: "Index"
-#     icon: "icons/pill@2x.png"
+#  {
+#     title: "Notification"
+#     icon: "icons/globe.png"
 #     location: "http://localhost/index.html"
 #   },
 #   {
-#     title: "Internet"
-#     icon: "icons/telescope@2x.png"
-#     location: "http://www.google.com"
+#     title: "Freinds"
+#     icon: "icons/group.png"
+#     location: "http://localhost/friends.html"
+#   },
+#   {
+#     title: "Settings"
+#     icon: "icons/group.png"
+#     location: "http://mw.nikkei.com/sp/#!/"
 #   }
 # ]
 
@@ -55,4 +60,4 @@ steroids.config.statusBar.style = "default"
 
 # -- Default Editor --
 # steroids.config.editor.cmd = "subl"
-# steroids.config.editor.args = ["."]
+# steroids.config.editor.args = ["."]# 

@@ -67,7 +67,7 @@ function onDeviceReady() {
             tmp_html += val.title;
             tmp_html += '</h4>';
             tmp_html += '<p>';
-            tmp_html += '<button class="webview_btn" value="'+url_str+'" onClick="showPage('+"'"+url_str+"'"+')">';
+            tmp_html += '<button type="button" class="btn btn-primary webview_btn" value="'+url_str+'" onClick="showPage('+"'"+url_str+"'"+')">';
             tmp_html += '<label>more &raquo; </label>';
             tmp_html += '</button>';
             tmp_html += '<a href="http://line.naver.jp/R/msg/text/?LINE%E3%81%A7%E9%80%81%E3%82%8B%0D%0Ahttp%3A%2F%2Fline.naver.jp%2F"><img src="[ボタン画像のURL]" width="[ボタン幅]" height="[ボタン高さ]" alt="LINEで送る" /></a>'
@@ -94,49 +94,6 @@ function onDeviceReady() {
       current_url = $(this).val();
     });
     // steroids.on("ready", initDatabase);
-
-
-    // db = new steroids.data.SQLiteDB("testdb")
-
-    // db.createTable({
-    //   name: "cars",
-    //   columns: {
-    //     car_id: "integer",
-    //     name: "text",
-    //     description: "text",
-    //     img: "blob",
-    //     price: "real"
-    //   }
-    // }, {
-    //   onSuccess: function() {
-    //     alert("Created table");
-
-    //     // create data
-    //     testdb.execute("INSERT INTO cars (car_id, name, description, img, price) VALUES (1, 'Model S', 'Model S rocks!', 'somebase64image', 2.50)", {
-    //         onSuccess: function(rows, res, tx) {
-    //           alert("Created row!");
-    //         },
-    //         onFailure: function(err) {
-    //           alert(err.message);
-    //         }
-    //     });
-
-        // testdb.execute("SELECT * FROM cars" ,{
-        //   onSuccess: function(rows, res, tx){
-        //     console.log("rows: "+rows, "res: "+res, "tx: "+tx);
-        //   },
-        //   onFailure: function(err) {
-        //     console.log(err.message);
-        //   }
-        // });
-
-    //   },
-    //   onFailure: function() {
-    //     alert("Table creation failed.");
-    //   }
-    // });
-
-
 }
 
 function onSuccess(contacts) {
@@ -183,7 +140,7 @@ function showPage(url) {
   steroids.layers.push(webView);
 }
 
-steroids.view.navigationBar.show("nikkei group daily");
+steroids.view.navigationBar.show("news");
 
 var animation = new steroids.Animation( {
  transition: "curlUp",

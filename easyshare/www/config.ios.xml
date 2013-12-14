@@ -10,7 +10,7 @@
     <access origin="*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="DisallowOverscroll" value="false" />
-    <preference name="EnableViewportScale" value="false" />
+    <preference name="EnableViewportScale" value="true" />
     <preference name="HideKeyboardFormAccessoryBar" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="KeyboardShrinksView" value="false" />
@@ -21,4 +21,5 @@
     <preference name="PageLength" value="0"/>
     <preference name="PaginationBreakingMode" value="page"/>
     <preference name="GapBetweenPages" value="0"/>
+
 </widget>
