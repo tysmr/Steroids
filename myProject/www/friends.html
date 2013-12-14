@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <meta name="viewport" content="user-scalable=yes, initial-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+  <link rel="stylesheet" href="vendor/topcoat/css/topcoat-mobile-light.css" />
+  <link rel="stylesheet" href="stylesheets/application.css" />
+  
+  <script src="http://localhost/appgyver/cordova.js"></script>
+  <script src="components/steroids-js/steroids.js"></script>
+  <script src="javascripts/application.js"></script>
+  <script src="components/jquery/jquery.min.js"></script>
+  <script src="plugins/sqliteplugin.js"></script>
+</head>
+<body>
+  <h2>Friends List</h2>
+  <!-- <div id="title_sample"></div> -->
+  <div class="content-padded">
+    <a class="topcoat-button--cta center full" ontouchend="sendToFriends()">送信</a>
+  </div>
+  <div id="user_data"></div>
+  <script>
+  $(function(){
+    
+  });
+ 
+ function addFriends() {
+  console.log('-----addFriends-----');
+  var html = addFriendsList();
+  console.log(html);
+  $('#friendsList').append(html);
+ }
+  // <a class="topcoat-button--cta center full" ontouchend="cameraGetPicture()">Grab a picture</a>
+  //   <a class="topcoat-button--cta center full" ontouchend="performAnimation()">Curl up</a>
+  //   <a class="topcoat-button--cta center full" ontouchend="onStartButton()">load sqlite</a>
+
+
+
+
+    // var db; // init database variable
+    // var userArr = [];
+    // console.log('-----friends.html-----');
+ //  	document.addEventListener("deviceready", onDeviceReady, false);
+ //  	$(document).ready(function(){
+ //  		document.addEventListener("deviceready", onDeviceReady, false);
+ //  	}
+
+ //  	function onDeviceReady() {
+ //      var options = new ContactFindOptions();
+ //      options.filter = "";
+ //      options.multiple = true; // これがfalseだとアドレスは一件しかとれない。  
+ //      var fields = ["displayName","emails"];
+      
+ //      var contact = navigator.contacts.find(fields, onSuccess, onError, options);
+ //    }
+
+ //    function onSuccess(contacts) {
+ //      for (var i=0; i<contacts.length; i++) {
+ //      // console.log("displayName: " + contacts[i].displayName,contacts[i].id );
+ //      if(contacts[i].emails != null){
+ //        userArr.push([contacts[i].displayName, contacts[i].emails[0].value]);
+ //          // console.log("emails: " + contacts[i].emails[0].value);
+ //        }
+ //      }
+ //      var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+ //      db.transaction(populateDB, errorCB, successCB);
+ //    }
+ //    function onError(contactError) {
+ //      alert('onError!');
+ //    }
+
+ //      function populateDB(tx) {
+ //      // alert(userArr[0][0]+userArr[0][1]);
+ //      tx.executeSql('DROP TABLE IF EXISTS DEMO');
+ //      tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, displayName, emails)');
+ //      for(var i=0;i<userArr.length;i++){
+ //        // console.log('INSERT INTO DEMO (id, displayName, emails) VALUES ('+i+','+'"'+String(userArr[i][0])+'"'+','+'"'+String(userArr[i][1])+'"'+')');
+ //        tx.executeSql('INSERT INTO DEMO (id, displayName, emails) VALUES ('+i+','+'"'+String(userArr[i][0])+'"'+','+'"'+String(userArr[i][1])+'"'+')');
+ //      }
+ //    }
+ //    function successCB() {
+ //      alert("success!");
+ //      var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+ //      db.transaction(queryDB, errorCB);
+
+ //    }
+
+ //    function errorCB(err) {
+ //     alert("Error processing SQL: "+err.code);
+ //   }
+ //   function queryDB(tx) {
+ //     tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+ //   }
+
+ //   function querySuccess(tx, results) {
+ //     console.log("Returned rows = " + results.rows.length);
+
+	//   // for(var i=0;i<results.row.length;i++){
+	//   // 	htm += '<p>'+results.row[i].id+'</p>';
+	//   // }
+	//   // $('#friendsList').append(htm);
+	//   var len = results.rows.length;
+	//   for (var i=0; i<len; i++){
+ //      console.log("Row = " + i + " ID = " + results.rows.item(i).id + " DisplayName =  " + results.rows.item(i).displayName + " Emails =  " + results.rows.item(i).emails);
+ //      var htm = '';
+ //      htm += '<p>';
+ //      htm += results.rows.item(i).displayName;
+ //      htm += '</p>';
+ //      $('#friendsList').append(htm);
+ //    }
+
+
+ //    if(!results.rowsAffected) {
+ //     console.log('No rows affected!');
+ //     return false;
+ //   }
+ //   console.log("Error proccessing SQL: "+ err.code);
+ // }
+
+ </script>
+</body>
+</html>

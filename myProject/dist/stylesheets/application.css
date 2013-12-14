@@ -1,0 +1,17 @@
+* {
+  -webkit-user-select: none;  /* Disable selection/copy of elements when tapping for a long time */
+  -webkit-touch-callout: none; /* Disable touch callouts */
+}
+
+input {
+  -webkit-user-select: text;  /* Allow selection for input elements */
+}
+
+.content-padded {
+  padding: 10px;
+}
+#myImage {
+    width: 300px;
+    margin: auto;
+    display: block;
+  }
