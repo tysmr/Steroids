@@ -81,22 +81,23 @@ function onDeviceReady() {
         var options = new ContactFindOptions();
         options.filter = "";
         options.multiple = true; // これがfalseだとアドレスは一件しかとれない。  
-        var fields = ["displayName","emails"];
+        fields = ["displayName","emails"];
         
-        var contact = navigator.contacts.find(fields, onSuccess, onError, options);
-
+        navigator.contacts.find(fields, onSuccess, onError, options);
+        
     }).error(function(data){
         
     });
 
-    $('button.webview_btn').on('click',function(){
-      alert('click'+$(this).val());
-      current_url = $(this).val();
-    });
+    // $('button.webview_btn').on('click',function(){
+    //   console.log('click'+$(this).val());
+    //   current_url = String($(this).val());
+    // });
     // steroids.on("ready", initDatabase);
 }
 
 function onSuccess(contacts) {
+  console.log('success-contacts3');
   for (var i=0; i<contacts.length; i++) {
     // console.log("displayName: " + contacts[i].displayName,contacts[i].id );
     if(contacts[i].emails != null){
@@ -135,7 +136,9 @@ function show() {
   var webView = new steroids.views.WebView("show.html");
   steroids.layers.push(webView);
 }
-function showPage(url) {  
+function showPage(url) {
+  current_url = url;
+  window.localStorage.setItem("current_url_key", current_url);
   var webView = new steroids.views.WebView(url);
   steroids.layers.push(webView);
 }
@@ -164,7 +167,7 @@ function performAnimation() {
 
 }
 // var leftDrawer = new steroids.views.WebView("friends.html");
-var leftDrawer = new steroids.views.WebView("http://localhost/friends.html");
+var leftDrawer = new steroids.views.WebView("friends.html");
 // alert(leftDrawer.location);
 // alert(leftDrawer.params);
 leftDrawer.preload({}, {
@@ -194,15 +197,14 @@ function querySuccess(tx, results) {
   console.log("Returned rows = " + results.rows.length);
   results_data = results.rows;
   console.log(results_data);
+  var htm = '';
   for (var i=0; i<results.rows.length; i++){
     // console.log("Row = " + i + " ID = " + results.rows.item(i).id + " DisplayName =  " + results.rows.item(i).displayName + " Emails =  " + results.rows.item(i).emails);
-    var htm = '';
       htm += '<p><input type="checkbox" class="user_contacts" value="'+results.rows.item(i).emails+'">';
       htm += results.rows.item(i).displayName;
-      htm += '</p>';
-      
-      $('#user_data').append(htm);
+      htm += '</p>'; 
   }
+  $('#user_data').append(htm);
   if(!results.rowsAffected) {
     console.log('No rows affected!');
     return false;
@@ -213,12 +215,11 @@ function querySuccess(tx, results) {
 
 function addFriendsList() {
   alert(results_data);
+  var htm = '';
   for (var i=0; i<results_data.length; i++){
-    var htm = '';
       htm += '<p><input type="checkbox" value="'+results_data.item(i).emails+'">';
       htm += results_data.item(i).displayName;
       htm += '</p>';
-      
   }
   return htm;
 }
@@ -237,6 +238,7 @@ function successCB() {
 
 function sendToFriends() {
   console.log('-----sendToFriends-----');
+  console.log(window.localStorage.getItem("current_url_key"));
   if(!$('.user_contacts:checked')){
     alert('アドレスを選択してください。');
   }else{
@@ -244,7 +246,7 @@ function sendToFriends() {
     $('.user_contacts:checked').each(function(){
       sendToFriendsList.push($(this).val());
       console.log('sendToFriendsList: '+sendToFriendsList);
-      var str;
+      var str = '';
       if(sendToFriendsList.length >1){
         for(var i=0;i<sendToFriendsList.length;i++){
           str += sendToFriendsList[i]+',';
@@ -253,7 +255,8 @@ function sendToFriends() {
       }else{
         str = sendToFriendsList[0];
       }
-      location.href='mailto:'+str+'?subject=シェアします&body='+current_url+'%0d%0aご参考まで';
+
+      location.href='mailto:'+str+'?subject=シェアします&body='+window.localStorage.getItem("current_url_key")+'%0d%0aご参考まで';
 
     });
   }
