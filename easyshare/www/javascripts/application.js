@@ -9,25 +9,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 $(document).ready(function(){
   console.log('-----document.ready-----');
-  
-  
-  // $('.toPange').on('click', function(){
-  //   console.log('---toPage-----');
-  //   showPage($(this).val());
-  // });
 
   });
 
 function onStartButton() {
   console.log('onStartButton');
-  // db.execute("SELECT * FROM testdb.cars" ,{
-  //   onSuccess: function(rows, res, tx){
-  //     console.log("rows: "+rows, "res: "+res, "tx: "+tx);
-  //   },
-  //   onFailure: function(err) {
-  //     console.log(err.message);
-  //   }
-  // });
   console.log(db,db.execute);
   var cmd = 'SELECT car_id, name FROM cars';
   db.execute(cmd, {
@@ -43,12 +29,6 @@ function onStartButton() {
 
 function onDeviceReady() {
   console.log('-----onDeviceReady-----');
-
-  // var backButton = new steroids.buttons.NavigationBarButton();
-  // backButton.title = ">>";
-  // steroids.view.navigationBar.setButtons({
-  //   right: [backButton]
-  // });
 
   var str = 'http://business.nikkeibp.co.jp';
   $.ajax({
@@ -89,11 +69,6 @@ function onDeviceReady() {
         
     });
 
-    // $('button.webview_btn').on('click',function(){
-    //   console.log('click'+$(this).val());
-    //   current_url = String($(this).val());
-    // });
-    // steroids.on("ready", initDatabase);
 }
 
 function onSuccess(contacts) {
@@ -166,7 +141,6 @@ function performAnimation() {
  );
 
 }
-// var leftDrawer = new steroids.views.WebView("friends.html");
 var leftDrawer = new steroids.views.WebView("friends.html");
 // alert(leftDrawer.location);
 // alert(leftDrawer.params);
@@ -232,13 +206,11 @@ function successCB() {
     // alert("success!");
     var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
     db.transaction(queryDB, errorCB);
-
 }
 
-
 function sendToFriends() {
-  console.log('-----sendToFriends-----');
-  console.log(window.localStorage.getItem("current_url_key"));
+  // console.log('-----sendToFriends-----');
+  // console.log(window.localStorage.getItem("current_url_key"));
   if(!$('.user_contacts:checked')){
     alert('アドレスを選択してください。');
   }else{
@@ -262,42 +234,4 @@ function sendToFriends() {
   }
   
 }
-
-
-
-
-
-// function initDatabase() {
-
-//   var dbPath = steroids.app.path + "/data/Chinook_Sqlite.sqlite"
-//   db = window.sqlitePlugin.openDatabase({name: dbPath});
-
-// }
-
-// function runQuery() {
-//   db.transaction(queryDB, databaseError);
-// }
-
-// // Query the database
-// function queryDB(tx) {
-//   tx.executeSql('SELECT * FROM ARTIST', [], gotQueryResults, databaseError);
-// }
-
-// // Show the results of the database query
-// function gotQueryResults(tx, results) {
-//   var len = results.rows.length;
-//   var result = "";
-//   result += ("Artist table: " + len + " rows found. \n\n");
-//   for (var i=0; i<len; i++){
-//     result += ("Name =  " + results.rows.item(i).Name + "\n");
-//   }
-//   navigator.notification.alert(result, null, "Database query successful!");
-// }
-
-// // Transaction error callback
-// function databaseError(err) {
-//   navigator.notification.alert("Error code: " + err.code + "; message: " + err.message, null, "Error processing SQL!");
-// }
-
-
 
